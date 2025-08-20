@@ -1,0 +1,29 @@
+sim := Simulacion new.
+sim turnoActual: 1.
+mundo := Mundo crearConAncho:10 Alto:10.
+pos := (2@3).
+colonia1 := Colonia crearEn: pos.
+reina1 := Reina crearEn: colonia1 ubicacion De: colonia1.
+mundo añadirColonia: colonia1.
+pos2 := (3@2).
+colonia2 := Colonia crearEn: pos2.
+reina2 := Reina crearEn: colonia2 ubicacion De: colonia2.
+mundo añadirColonia: colonia2.
+pos3 := (4@3). 
+fuente := FuenteComida crearEn: pos3.
+mundo añadirFuente: fuente.
+sim mundo: mundo.
+i:=1.
+60 timesRepeat: [  
+		Transcript show: 'Turno: ', i asString;cr.
+		sim ejecutarTurno.
+		mundo colonias doWithIndex: [:c :i |
+			Transcript show: '-----Colonia ', i asString, ': ', c comidaAlmacenada asString, '-----';cr .
+			Transcript show: 'En Guerra: ', (c enGuerra) asString, ', Puede: ', c estaListaParaAtacar asString;cr.
+			c hormigas doWithIndex: [:h :i2 | 
+					Transcript show: 'Hormiga: ', i2 asString,', Tipo:' , h class name, ' , Estado: ',   h estado asString, ', Ubicacion: ', h ubicacion asString;cr.
+				]
+			 
+			].
+		i:=i+1.
+	 ]

@@ -1,0 +1,8 @@
+Para esta segunda entrega, y teniendo en cuenta las condiciones del enunciado dado, decimimos implementar los siguientes cambios:
+1. Creamos la superclase abstracta "Hormiga" para poder instancias sus distintos tipos (manejados como subclases de la misma) y reutilizar métodos que compartían lógica entre las hormigas.
+2. A la clase "Casilla" se la cambió a superclase y definimos como subclase a Colonia y FuenteComida, así podíamos "modularizar" un poco la ubicación y algún método.
+3. Mensaje fue cambiado a superclase abstracta para que solo haya 2 tipos y poder reutilizar métodos/atributos (MensajeColonia, MensajeFuente).
+4. Manejamos la guerra desde la clase Mundo, ya que es la que contiene a todas las colonias existentes. Se verifican las posibles guerras después de que actúa cada colonia, y en el caso de ser necesario se inician las guerras correspondientes.
+5. Se modificaron los métodos de movimiento de las hormigas, para que avancen la cantidad de casillas correspondientes a cada una.
+
+Nota: Intentamos añadir una clase "Posición" con atributos x e y, pero fue descartada ya que requería muchas verificaciones con el método "copy" ya que se compartían instancias de Posicion entre instancias de otras clases, lo que daba lugar a varios errores como que, al moverse una hormiga, también lo hacían las colonias. Por lo tanto, decidimos manejar los atributos de "ubicación" como Pointers.

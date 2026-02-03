@@ -1,3 +1,0 @@
-1. Abstraer lógica común en ejecutarAccion de hormiga para que haya polimorfismo puro o refinamiento en el método del padre.
-2. Método que devuelve booleano en false para la Reina con debe moverse.
-3. Se puede mover el IniciarGuerra a la colonia atacante, pasando por parámetro la defensora para mejorar la responsabilidad.
